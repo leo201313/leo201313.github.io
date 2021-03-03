@@ -6,7 +6,7 @@ description: >
     A page for Mingrui Cao to record his experience. # this means to ignore newlines until "baseurl:"
 baseurl: "/leo201313.github.io" # the subpath of your site, e.g. /blog
 url: "https://leo201313.github.io" # the base hostname & protocol for your site
-twitter_username: Mingrui Cao # your Twitter username
+twitter_username: MingruiCao # your Twitter username
 github_username: leo201313 # your Github username
 disqus_username: # your disqus username
 

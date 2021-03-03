@@ -1,4 +1,8 @@
 Welcome
+
+The theme of this page is designed by Gabriel, named as _Nice Blog_.
+
+The introduction of this theme is quoted here for reference. Many thanks for the designer!
 =======
 
 I think many blog themes are over designed, so I created this one. 

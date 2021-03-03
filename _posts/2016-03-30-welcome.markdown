@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Welcome to Nice Blog"
+title: "Statement of this theme"
 subtitle: "A simple Jekyll blog theme."
 date: 2016-03-30
 author: Gabriel
@@ -8,6 +8,14 @@ category: Jekyll
 tags: jekyll github blog
 finished: true
 ---
+
+## Statement
+
+The theme of this page is designed by Gabriel, named as _Nice Blog_.
+
+My page is here <https://leo201313.github.io>.
+
+The introduction of this theme is quoted here for reference. Many thanks for the designer!
 
 ## Welcome
 

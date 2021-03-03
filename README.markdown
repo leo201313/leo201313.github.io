@@ -3,6 +3,8 @@ Welcome
 
 The theme of this page is designed by Gabriel, named as _Nice Blog_.
 
+My page is here <https://leo201313.github.io>.
+
 The introduction of this theme is quoted here for reference. Many thanks for the designer!
 
 Begin

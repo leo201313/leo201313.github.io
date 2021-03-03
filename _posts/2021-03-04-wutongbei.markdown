@@ -6,7 +6,7 @@ date: 2021-03-04
 author: Krad
 category: Big Data
 tags: competition dc
-finished: true
+finished: false
 published: true
 ---
 
@@ -30,3 +30,28 @@ published: true
 
 ![datapic3](https://pu-datacastle.obs.cn-north-1.myhuaweicloud.com/pkbigdata/master.other.img/5ac2100a-7227-4b06-87eb-cfb6d824f262.jpeg)
 
+3）游客数据样本获取自景区门票销售数据，如下：
+
+![datapic4](https://pu-datacastle.obs.cn-north-1.myhuaweicloud.com/pkbigdata/master.other.img/f3b4a9c7-32f2-4c94-ae77-8267fe374bd9.jpeg)
+
+4）景区边界数据，如下：
+
+![datapic5](https://pu-datacastle.obs.cn-north-1.myhuaweicloud.com/pkbigdata/master.other.img/1b5f2e99-e145-4a2e-8e76-61dd24f16ce1.png)
+
+> 博物馆坐标：
+<br>左上角：117.08837146047,36.659502058203
+<br>右上角：117.09066108437,36.659516028328
+<br>左下角：117.08829565590,36.657882069574
+<br>右下角：117.09065223369,36.657899003953
+
+## 评测方法
+
+以模型F值进行评判
+
+计算公式：
+
+![deduce1](https://pu-datacastle.obs.cn-north-1.myhuaweicloud.com/pkbigdata/master.other.img/ae4b650a-788b-4a09-bc4a-ffb76189e1f1.jpeg)
+
+## 赛题分析
+
+还没开始了！

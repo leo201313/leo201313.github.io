@@ -5,7 +5,7 @@ subtitle: "“梧桐杯”中国移动大数据创新大赛-智慧生活赛道"
 date: 2021-03-04
 author: Krad
 category: Big Data
-tags: competition dc
+tags: competition datascience
 finished: false
 published: true
 ---
@@ -54,4 +54,4 @@ published: true
 
 ## 赛题分析
 
-还没开始了！
+首先分析位置数据样本。直接对process_time信令产生时间进行分析，分析信令是否在周末产生，以及信令是否在工作时段产生。对于基站的经纬度数据，首先应标注是否在景区范围内，同时应分化出更小的区块进行分类。

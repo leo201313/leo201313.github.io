@@ -54,6 +54,8 @@ published: true
 <br>Conference Dates: June 14-23, 2021
 <br>Confirmation Number: CCCCCCCAO （If you have）
 <br>E-Mail: youremailaddress@foxmail.com
+<br>Item: IEEE Member
+<br>Amount:$350.00
 <br>
 <br>Best Regards.
 <br>

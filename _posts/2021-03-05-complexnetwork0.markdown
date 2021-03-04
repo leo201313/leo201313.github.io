@@ -16,13 +16,13 @@ published: true
 
 ## Networkx库
 
-查看开发文档，细品这么一句话:<span class='evidence'>__NetworkX uses a "dictionary of dictionaries of dictionaries" as the basic network data structure.__</span>，对于无向图而言，以下有一个例子：
+查看开发文档，细品这么一句话:<span class='evidence'>_NetworkX uses a "dictionary of dictionaries of dictionaries" as the basic network data structure._</span> 对于无向图而言，以下有一个例子：
 
 `
->>> G = nx.Graph()
->>> G.add_edge('A', 'B')
->>> G.add_edge('B', 'C')
->>> print(G.adj)
+G = nx.Graph()
+G.add_edge('A', 'B')
+G.add_edge('B', 'C')
+print(G.adj)
 {'A': {'B': {}}, 'B': {'A': {}, 'C': {}}, 'C': {'B': {}}}
 `
 

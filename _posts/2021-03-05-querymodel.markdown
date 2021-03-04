@@ -19,14 +19,23 @@ published: true
 在申请invitation letter时要注意说明paper ID以及title，同时最好说明一下自己的个人信息（至少要说明名字以及工作地址，很重要！！！），方便会议主持们定位你的文章并撰写邀请函。现给出通用模板：
 
 > Subject:[feedback needed] Visa letter needed about [会议名称 eg. ICC2021] paper [paper的ID号]
+<br>
 <br>Dear Chairs of ICC2021,
+<br>
 <br>I’m Mingrui Cao, one of the authors of the paper #0000000 ("paper title"). Many thanks for the decision letter and the comments from the reviewers. This e-mail is asking a favor from you. I have not received the visa letter at present. Since the visa letter is needed in some approval procedures of our school to attend the conference, could you please help us to send it to the following email address as soon as possible?
+<br>
 <br>youremailaddress@foxmail.com
+<br>
 <br>My work address is [your address]. 
+<br>
 <br>We will be very appreciated if you kindly do this favor for us.
+<br>
 <br>Thank you very much.
+<br>
 <br>Best Regards.
+<br>
 <br>Yours sincerely,
+<br>
 <br>Mingrui Cao
 <br>Mar.1,2021
 
@@ -35,15 +44,21 @@ published: true
 在申请Receipt时，很多同学存在使用师兄或老师的信息注册会议，然后使用注册码进行文章注册的情况，所以在索要时需要提供注册会议时的账户信息而不是你自己的信息。现给出通用模板：
 
 > Subject:[feedback needed] Receipt needed for [会议名称 eg. ICC2021]
+<br>
 <br>Dear Chairs of ICC2021,
+<br>
 <br>We registered for the conference IEEE ICC 2021, but never receive a receipt or other invoice except a successful registration email. So, can you send me a receipt or invoice via this email address? The registration information is shown as follows:
+<br>
 <br>Event: IEEE ICC 2021
 <br>Attending: Mingrui Cao（一定要是注册人的信息）
 <br>Conference Dates: June 14-23, 2021
 <br>Confirmation Number: CCCCCCCAO （If you have）
 <br>E-Mail: youremailaddress@foxmail.com
+<br>
 <br>Best Regards.
+<br>
 <br>Yours sincerely,
+<br>
 <br>Mingrui Cao
 <br>Mar.4,2021
 

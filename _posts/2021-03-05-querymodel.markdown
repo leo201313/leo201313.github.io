@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "学术会议报销材料申请模板"
-subtitle: "The template to query material reimbursement of an academic conference"
+subtitle: "The template to query material for reimbursement of an academic conference"
 date: 2021-03-05
 author: Krad
 category: Template

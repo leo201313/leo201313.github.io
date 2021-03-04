@@ -5,7 +5,7 @@ subtitle: "“梧桐杯”中国移动大数据创新大赛-智慧生活赛道"
 date: 2021-03-04
 author: Krad
 category: Big Data
-tags: competition datascience
+tags: competition datascience bigdata
 finished: false
 published: true
 ---

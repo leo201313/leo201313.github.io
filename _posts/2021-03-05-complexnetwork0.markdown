@@ -75,3 +75,7 @@ plot.show()
 {% endhighlight %}
 
 random_graphs.watts_strogatz_graph有三个参数，分别为节点数$N$,平均度$K$（假定为偶数），和一个特殊的参数$\beta$
+
+$$
+a_x = 1 + 1
+$$

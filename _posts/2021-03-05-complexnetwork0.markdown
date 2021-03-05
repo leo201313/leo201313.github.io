@@ -60,6 +60,18 @@ plot.show()
 
 ## WS网络
 
-小世界网络是一类特殊的复杂网络结构，在这种网络中大部分的节点彼此并不相连，但绝大部分节点之间经过少数几步就可到达。
+小世界网络是一类特殊的复杂网络结构，在这种网络中大部分的节点彼此并不相连，但绝大部分节点之间经过少数几步就可到达。WS网络（Watts–Strogatz small-world graph）的生成代码如下：
 
-$$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$$
+{% highlight python %}
+import networkx as nx
+import matplotlib.pyplot as plot
+
+ws = nx.random_graphs.watts_strogatz_graph(50, 10, 0.4)
+
+# if need drawing
+ps = nx.spring_layout(ws)
+nx.draw(ws, ps, with_labels = False, node_size = 50)
+plot.show()
+{% endhighlight %}
+
+random_graphs.watts_strogatz_graph有三个参数，分别为节点数$N$,平均度$K$（假定为偶数），和一个特殊的参数$\beta$

@@ -16,15 +16,29 @@ published: true
 
 ## Networkx库
 
-查看开发文档，细品这么一句话:<span class='evidence'>_NetworkX uses a "dictionary of dictionaries of dictionaries" as the basic network data structure._</span> 对于无向图而言，以下有一个例子：
+查看开发文档，细品这么一句话:<span class='evidence'>_NetworkX uses a "dictionary of dictionaries of dictionaries" as the basic network data structure._</span> 意思是NetworkX里的Graph都是由三种相嵌的字典集构成。最外层的字典的key值是图中的点，次外层的key值是选中点的相邻点（存在连接关系），最里层的字典包含的是边的值（可以自定义很多边上的值，如颜色、权重等），对于无向图而言，以下有一个例子：
 
-{% highlight html %}
->>> G = nx.Graph()
->>> G.add_edge('A', 'B')
->>> G.add_edge('B', 'C')
->>> print(G.adj)
+{% highlight python %}
+G = nx.Graph()
+G.add_edge('A', 'B')
+G.add_edge('B', 'C')
+print(G.adj)
 {'A': {'B': {}}, 'B': {'A': {}, 'C': {}}, 'C': {'B': {}}}
+G.add_edge(1, 2, color='red', weight=0.84, size=300)
+print(G[1][2]['size'])
+300
+print(G.edges[1, 2]['color'])
+red
 {% endhighlight %}
+
+采取三层字典的数据结构的好处如下：
+
+* 通过指定外层两个key值（节点）删除边
+* 对于"list"和"sets"都很友好
+* G[u][v]直接返回边的属性值
+* 支持 n in G ， 如果n节点在G中返回true值
+* 支持 for n in G 遍历所有节点
+* 支持 nbr in G[n] 遍历节点n的所有邻节点
 
 ## BA网络
 

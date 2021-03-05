@@ -43,26 +43,28 @@ published: true
 
 在申请Receipt时，很多同学存在使用师兄或老师的信息注册会议，然后使用注册码进行文章注册的情况，所以在索要时需要提供注册会议时的账户信息而不是你自己的信息。现给出通用模板：
 
-> Subject:[feedback needed] Receipt needed for [会议名称 eg. ICC2021]
-<br>
-<br>Dear Chairs of ICC2021,
-<br>
-<br>We registered for the conference IEEE ICC 2021, but never receive a receipt or other invoice except a successful registration email. So, can you send me a receipt or invoice via this email address? The registration information is shown as follows:
-<br>
-<br>Event: IEEE ICC 2021
-<br>Attending: Mingrui Cao（一定要是注册人的信息）
-<br>Conference Dates: June 14-23, 2021
-<br>Confirmation Number: CCCCCCCAO （If you have）
-<br>E-Mail: youremailaddress@foxmail.com
-<br>Item: IEEE Member
-<br>Amount:$350.00
-<br>
-<br>Best Regards.
-<br>
-<br>Yours sincerely,
-<br>
-<br>Mingrui Cao
-<br>Mar.4,2021
+{% highlight python %}
+Subject:[feedback needed] Receipt needed for [会议名称 eg. ICC2021]
+
+Dear Chairs of ICC2021,
+
+We registered for the conference IEEE ICC 2021, but never receive a receipt or other invoice except a successful registration email. So, can you send me a receipt or invoice via this email address? The registration information is shown as follows:
+
+Event: IEEE ICC 2021
+Attending: Mingrui Cao（一定要是注册人的信息）
+Conference Dates: June 14-23, 2021
+Confirmation Number: CCCCCCCAO （If you have）
+E-Mail: youremailaddress@foxmail.com
+Item: IEEE Member
+Amount:$350.00
+
+Best Regards.
+
+Yours sincerely,
+
+Mingrui Cao
+Mar.4,2021
+{% endhighlight %}
 
 ## Summary
 

@@ -43,7 +43,7 @@ published: true
 
 在申请Receipt时，很多同学存在使用师兄或老师的信息注册会议，然后使用注册码进行文章注册的情况，所以在索要时需要提供注册会议时的账户信息而不是你自己的信息。现给出通用模板：
 
-{% highlight python %}
+{% highlight ceylon %}
 Subject:[feedback needed] Receipt needed for [会议名称 eg. ICC2021]
 
 Dear Chairs of ICC2021,

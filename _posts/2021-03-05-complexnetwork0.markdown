@@ -54,7 +54,7 @@ ba = nx.barabasi_albert_graph(100, 1)
 ps = nx.spring_layout(ba)
 nx.draw(ba, ps, with_labels = False, node_size = 50)
 plot.show()
-{% highlight python %}
+{% endhighlight %}
 
 其中barabasi_albert_graph函数有两个参数，第一个参数指定一共生成多少个节点，第二个参数指定后续节点在加入时连接几个点。
 

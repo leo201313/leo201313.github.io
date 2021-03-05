@@ -42,4 +42,24 @@ red
 
 ## BA网络
 
-BA模型指的是无标度网络模型，Albert-László Barabási 和Réka Albert为了解释幂律的产生机制所提出的模型。BA模型具有两个特性，其一是增长性，所谓增长性是指网络规模是在不断的增大的，在研究的网络当中，网络的节点是不断的增加的；其二就是优先连接机制，这个特性是指网络当中不断产生的新的节点更倾向于和那些连接度较大的节点相连接。
+BA模型指的是无标度网络模型，Albert-László Barabási 和Réka Albert为了解释幂律的产生机制所提出的模型。BA模型具有两个特性，其一是增长性，所谓增长性是指网络规模是在不断的增大的，在研究的网络当中，网络的节点是不断的增加的；其二就是优先连接机制，这个特性是指网络当中不断产生的新的节点更倾向于和那些连接度较大的节点相连接。BA网络的生成代码如下：
+
+{% highlight python %}
+import networkx as nx
+import matplotlib.pyplot as plot
+
+ba = nx.barabasi_albert_graph(100, 1)
+
+# if need drawing
+ps = nx.spring_layout(ba)
+nx.draw(ba, ps, with_labels = False, node_size = 50)
+plot.show()
+{% highlight python %}
+
+其中barabasi_albert_graph函数有两个参数，第一个参数指定一共生成多少个节点，第二个参数指定后续节点在加入时连接几个点。
+
+## WS网络
+
+小世界网络是一类特殊的复杂网络结构，在这种网络中大部分的节点彼此并不相连，但绝大部分节点之间经过少数几步就可到达。
+
+$$\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.$$

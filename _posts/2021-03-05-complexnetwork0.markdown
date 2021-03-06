@@ -74,8 +74,12 @@ nx.draw(ws, ps, with_labels = False, node_size = 50)
 plot.show()
 {% endhighlight %}
 
-random_graphs.watts_strogatz_graph有三个参数，分别为节点数$N$,平均度$K$（假定为偶数），和一个特殊的参数$\beta$
+random_graphs.watts_strogatz_graph有三个参数，分别为节点数$N$,平均度$K$（假定为偶数），和一个特殊的参数$\beta$，满足$0 \leq \beta \leq1$，且$N \gg K \gg lnN \gg 1$。该函数构造WS模型的算法如下：
 
-$$
-a_x = 1 + 1
-$$
+1. 构建一个正则环点阵。该图有$N$个节点，每个节点和$K$个相邻的节点相连，其中每一侧有$K/2$个。即，若每个节点用$n_0,...,n_{N-1}$表示，当且仅当
+<p>
+$$0<\left | i-j \right |mod(N-1-\frac{K}{2})\leq \frac{K}{2}$$
+</p>
+时，存在边$n_i,n_j$。
+2. 对于每个节点$n_i=$
+

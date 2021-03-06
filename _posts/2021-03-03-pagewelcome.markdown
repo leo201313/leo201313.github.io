@@ -4,8 +4,8 @@ title: "Welcome to Mingrui Cao's Blog"
 subtitle: "The introduction of this page"
 date: 2021-03-03
 author: Krad
-category: Introduction
-tags: introduction blog
+category: Welcome
+tags: welcome blog
 finished: true
 published: true
 ---

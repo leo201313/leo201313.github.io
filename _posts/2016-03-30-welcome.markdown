@@ -4,8 +4,8 @@ title: "Statement of this theme"
 subtitle: "A simple Jekyll blog theme."
 date: 2016-03-30
 author: Gabriel
-category: Introduction
-tags: introduction github blog
+category: Welcome
+tags: welcome github blog
 finished: true
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: "三种常见复杂网络模型及python生成代码"
 subtitle: "BA，WS，社区网络"
-date: 2021-03-05
+date: 2021-03-06
 author: Krad
 category: Complex Network
 tags: introduction complexnetwork bigdata

@@ -121,6 +121,8 @@ plt.axis('off')
 
 可以看到图中的各节点被分为了颜色不同的几大社区。
 
+既然已经讲到了社区网络，就不得不提一下社区发现算法。社区发现（Community Detection）算法用来发现网络中的社区结构，可以看做是一种聚类算法。这里着重介绍一下GN社区发现算法，原文出处<https://arxiv.org/pdf/cond-mat/0308217.pdf>，使用python实现GN算法的用例可以参考这篇文章<https://programmersought.com/article/57593262666/>(you may need a VPN).
+
 ## 复杂网络数据聚集
 
 这里推荐一个斯坦福大学大型网络数据集库<https://snap.stanford.edu/data/>。

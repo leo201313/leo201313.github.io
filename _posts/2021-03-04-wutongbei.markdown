@@ -6,7 +6,7 @@ date: 2021-03-04
 author: Krad
 category: Big Data
 tags: competition datascience bigdata
-finished: false
+finished: true
 published: true
 ---
 

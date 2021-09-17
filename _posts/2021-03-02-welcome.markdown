@@ -10,12 +10,11 @@ finished: true
 ---
 
 ## Statement
+Welcome, here is statement of this page.
 
 The theme of this page is originally designed by Gabriel, named as _Nice Blog_. I forked from this theme and have added some interesting components to make it suitable be hanged on github. I agree with Gabriel that many blogs are over-designed, so the least requirement of my page is just seeming tidy. 
 
-Again, my page is here <https://leo201313.github.io> (a.k.a. <http://www.krad.top>). Welcome to my page, and hope you get you want.
-
-The original introduction of this theme is quoted here for reference. Many thanks for the designer!
+Again, my page is here <https://leo201313.github.io> and here <http://www.krad.top>. Hope you get you want.
 
 ## License
 

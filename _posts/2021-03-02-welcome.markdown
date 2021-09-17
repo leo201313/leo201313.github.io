@@ -3,7 +3,7 @@ layout: post
 title: "Statement for this page"
 subtitle: "A simple Jekyll blog theme."
 date: 2021-03-02
-author: Gabriel
+author: Krad
 category: Welcome
 tags: welcome github blog
 finished: true

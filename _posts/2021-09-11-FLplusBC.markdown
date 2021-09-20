@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Look Foward to Blockchain Intergrated Federated Learning"
+title: "Look Foward to BC + FL"
 subtitle: "一些关于BC+FL的展望"
 date: 2021-09-11
 author: Krad

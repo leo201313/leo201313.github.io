@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "复杂网络级联效应仿真平台介绍"
-subtitle: "Review Report"
+subtitle: "MixNetwork Introduction"
 date: 2021-05-22
 author: Krad
 category: Complex Network

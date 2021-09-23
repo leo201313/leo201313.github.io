@@ -28,41 +28,4 @@ published: true
 
 区块链是有一个一个的区块以链式结构进行存储的
 
-{% highlight python %}
-package cli
 
-import (
-	"bytes"
-	"flag"
-	"fmt"
-	"log"
-	"os"
-	"runtime"
-	"strconv"
-
-	"github.com/leo201313/Blockchain_with_Go/blockchain"
-	"github.com/leo201313/Blockchain_with_Go/wallet"
-)
-
-type CommandLine struct{}
-
-func (cli *CommandLine) printUsage() {
-	fmt.Println("Welcome to Leo Cao's tiny blockchain system, usage is as follows:")
-	fmt.Println("--------------------------------------------------------------------------------------------------------------")
-	fmt.Println("All you need is to first create a wallet, and use the wallet address to init a blockchain.")
-	fmt.Println("Then, you can add more wallets and try to make some transactions use 'send'.")
-	fmt.Println("At this version, one block can contain multiple transactions. You should run mine to add block.")
-	fmt.Println("The nickname of wallet is just used to refer the wallet instead of typing the full address.")
-	fmt.Println("Nothing left to say, wish you good luck.")
-	fmt.Println("--------------------------------------------------------------------------------------------------------------")
-	fmt.Println("createwallet -nickname NICKNAME               ----> Creates a new wallet with the nick name")
-	fmt.Println("listwallets                                   ----> Lists all the wallets in the wallet file")
-	fmt.Println("walletinfo -nickname NICKNAME                 ----> Back all the information of a wallet")
-	fmt.Println("createblockchain -nickname NICKNAME           ----> Creates a blockchain using the name of the user's wallet")
-	fmt.Println("blockchaininfo                                ----> Prints the blocks in the chain")
-	fmt.Println("send -from FROMNAME -to TONAME -amount AMOUNT ----> Make a transaction")
-	fmt.Println("mine                                          ----> Mine and add a block to the chain")
-	fmt.Println("--------------------------------------------------------------------------------------------------------------")
-}
-
-{% end highlight %}

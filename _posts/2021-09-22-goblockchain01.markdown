@@ -4,7 +4,7 @@ title: "深入底层：Go语言从零构建区块链（一）: Hello, Blockchain
 subtitle: "Build Blockchain from Scratch with Golang"
 date: 2021-09-22
 author: Krad
-category: Blockchain Golang Tutorial
+category: Blockchain
 tags: blockchain golang
 finished: true
 published: true

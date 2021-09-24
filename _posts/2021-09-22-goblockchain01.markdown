@@ -24,6 +24,8 @@ published: true
 
 *由于本人Go语言也还处于学习阶段，故一些部分代码可能较为冗余。区块链实现细节有误的地方也随时欢迎讨论指正。*
 
+**完整的项目地址：<https://github.com/leo201313/Blockchain_with_Go>**
+
 ## 创建项目
 首先我们需要创建一个项目。创建一个文件夹命名为goblockchain（当然你也可以取一个霸气的名字，比如lighteningchain,goXchain等等），然后使用VS（Visual Studio Code，推荐使用VS作为IDE）打开文件夹，如下图
 
@@ -35,7 +37,7 @@ published: true
 此时文件夹中将会多出一个go.mod文件，证明项目已经初始化成功。在goblockchain文件夹下创建main.go文件。
 ![pic1](../img/goblockchain1/pic3.png)
 
-## 区块
+## 区块与区块链
 区块链以区块（block）的形式储存数据信息，一个区块记录了一段时间内系统或网络中产生的重要数据信息，区块通过引用上一个区块的hash值来连接上一个区块这样区块就按时间顺序排列形成了一条链。每个区块应该包含头部（head）信息用于总结性的描述这个区块，然后在区块的数据存放区（body）中存放要保存的重要数据。首先我们需要初始化main.go，并导入一些基本的包。
 
 {% highlight go %}
@@ -74,6 +76,7 @@ type BlockChain struct{
 }
 {% endhighlight %}
 可以看到我们这里的区块链就是区块的一个集合。好了，现在你已经掌握了区块与区块链了，现在就可以去搭建自己的区块链系统了。
+## 哈希
 
 QVQ，好吧，我们现在来给我们的区块增加点细节，来看看它们是怎么连接起来的。对于一个区块而言，可以通过哈希算法概括其所包含的所有信息，哈希值就相当于区块的ID值，同时也可以用来检查区块所包含信息的完整性。哈希函数构造如下。
 
@@ -94,7 +97,10 @@ func ToHexInt(num int64) []byte {
 	return buff.Bytes()
 }
 {% endhighlight %}
-information变量是将区块的各项属性串联之后的字节串。这里提醒一下bytes.Join可以将多个字节串连接，第二个参数是将字节串连接时的分隔符，这里设置为[]byte{}即为空，ToHexInt将int64转换为字节串类型。然后我们对information做哈希就可以得到区块的哈希值了。既然我们可以获得区块的哈希值了，我们就能够创建区块了。
+information变量是将区块的各项属性串联之后的字节串。这里提醒一下bytes.Join可以将多个字节串连接，第二个参数是将字节串连接时的分隔符，这里设置为[]byte{}即为空，ToHexInt将int64转换为字节串类型。然后我们对information做哈希就可以得到区块的哈希值了。
+
+## 区块创建与创始区块
+既然我们可以获得区块的哈希值了，我们就能够创建区块了。
 
 {% highlight go %}
 //main.go
@@ -117,7 +123,7 @@ func GenesisBlock() *Block {
 {% highlight go %}
 //main.go
 func (bc *BlockChain) AddBlock(data string) {
-	newBlock := CreateBlock(bc.Blocks[len(bc.Blocks)-1].PrevHash, []byte(data))
+	newBlock := CreateBlock(bc.Blocks[len(bc.Blocks)-1].Hash, []byte(data))
 	bc.Blocks = append(bc.Blocks, newBlock)
 }
 {% endhighlight %}
@@ -130,6 +136,8 @@ func CreateBlockChain() *BlockChain {
 	return &blockchain
 }
 {% endhighlight %}
+
+## 运行区块链系统
 现在我们已经拥有了所有创建区块链需要的函数了，来看看我们的区块链是怎么运作的。
 {% highlight go %}
 //main.go
@@ -153,24 +161,29 @@ func main() {
 
 }
 {% endhighlight %}
-输出如下。
+在terminal中输入go run main.go，输出如下。
 {% highlight %}
 D:\learngo\goblockchain>go run main.go
-Timestamp: 1632470217
-hash: 681e1d81f71f523fb523f806a9656c70c3d05a9e0504ce754f6cf9d8a1633976
+Timestamp: 1632471455
+hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
 Previous hash:
 data: Hello, blockchain!
-Timestamp: 1632470218
-hash: 8ea5e3d6d94b88fe4c4ce5ec2d4fcd3497ee72033f4c17b114ee75f98a55437e
-Previous hash:
+Timestamp: 1632471456
+hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
+Previous hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
 data: After genesis, I have something to say.
-Timestamp: 1632470219
-hash: 0368630f6e6f9361663b001913e9e8138ffff1d1c273e939e2e3c28bce5c25bc
-Previous hash:
+Timestamp: 1632471457
+hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
+Previous hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
 data: Leo Cao is awesome!
-Timestamp: 1632470220
-hash: e7f82ea9803abff2bb7a5068eeabad5b427d404f21c246c455ba31ed10c8ee42
-Previous hash:
+Timestamp: 1632471458
+hash: 453ff251f95183c92ace277dec4181d5c71582129dc31cce3ceb37c7b1377efc
+Previous hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
 data: I can't wait to follow his github!
 {% endhighlight %}
+
+你需要注意的是创始区块没有Previous Hash，同时后面的每一个区块都保留了前一个区块的哈希值。
+
+## 总结
+在本章中，我们构建了一个最简单的区块链模型。本章需要重点理解区块与区块链的关系，区块的哈希值的意义，以及创世区块的构建。在下一章中，我们将讲解PoW(Proof of Work)共识机制，并增加一些区块结构体的头部信息。
 

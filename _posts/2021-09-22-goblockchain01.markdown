@@ -109,6 +109,9 @@ information变量是将区块的各项属性串联之后的字节串。这里提
 既然我们可以获得区块的哈希值了，我们就能够创建区块了。
 
 
+
+
+
 	//main.go
 
 	func CreateBlock(prevhash, data []byte) *Block {
@@ -139,7 +142,13 @@ information变量是将区块的各项属性串联之后的字节串。这里提
 		bc.Blocks = append(bc.Blocks, newBlock)
 	}
 
+
+
+
 最后我们构建一个区块链初始化函数，使其返回一个包含创始区块的区块链。
+
+
+
 
 
 	//main.go

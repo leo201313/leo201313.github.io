@@ -42,6 +42,7 @@ published: true
 
 {% highlight go %}
 //main.go
+
 package main
 
 import (
@@ -60,6 +61,7 @@ func main {
 然后定义区块的结构体。
 {% highlight go %}
 //main.go
+
 type Block struct{
 	Timestamp int64
 	Hash []byte
@@ -71,6 +73,7 @@ type Block struct{
 
 {% highlight go %}
 //main.go
+
 type BlockChain struct{
 	Blocks []*Block
 }
@@ -82,6 +85,7 @@ QVQ，好吧，我们现在来给我们的区块增加点细节，来看看它�
 
 {% highlight go %}
 //main.go
+
 func (b *Block) SetHash() {
 	information := bytes.Join([][]bytes{ToHexInt(b.Timestamp),b.PrevHash,b.Data},[]byte{})
 	hash := sha256.Sum256(information)
@@ -104,6 +108,7 @@ information变量是将区块的各项属性串联之后的字节串。这里提
 
 {% highlight go %}
 //main.go
+
 func CreateBlock(prevhash, data []byte) *Block {
 	block := Block{time.Now().Unix(), []byte{}, prevhash, data}
 	block.SetHash()
@@ -114,6 +119,7 @@ func CreateBlock(prevhash, data []byte) *Block {
 
 {% highlight go %}
 //main.go
+
 func GenesisBlock() *Block {
 	genesisWords := "Hello, blockchain!"
 	return CreateBlock([]byte{}, []byte(genesisWords))
@@ -122,6 +128,7 @@ func GenesisBlock() *Block {
 可以看到我们在创始区块中存放了 *Hello, blockchain!* 这段信息。现在我们来构建函数，使得区块链可以根据其它信息创建区块进行储存。
 {% highlight go %}
 //main.go
+
 func (bc *BlockChain) AddBlock(data string) {
 	newBlock := CreateBlock(bc.Blocks[len(bc.Blocks)-1].Hash, []byte(data))
 	bc.Blocks = append(bc.Blocks, newBlock)
@@ -130,6 +137,7 @@ func (bc *BlockChain) AddBlock(data string) {
 最后我们构建一个区块链初始化函数，使其返回一个包含创始区块的区块链。
 {% highlight go %}
 //main.go
+
 func CreateBlockChain() *BlockChain {
 	blockchain := BlockChain{}
 	blockchain.Blocks = append(blockchain.Blocks, GenesisBlock())
@@ -141,6 +149,7 @@ func CreateBlockChain() *BlockChain {
 现在我们已经拥有了所有创建区块链需要的函数了，来看看我们的区块链是怎么运作的。
 {% highlight go %}
 //main.go
+
 func main() {
 	blockchain := CreateBlockChain()
 	time.Sleep(time.Second)

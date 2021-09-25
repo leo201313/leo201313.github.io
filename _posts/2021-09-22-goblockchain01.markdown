@@ -40,152 +40,145 @@ published: true
 ## 区块与区块链
 区块链以区块（block）的形式储存数据信息，一个区块记录了一段时间内系统或网络中产生的重要数据信息，区块通过引用上一个区块的hash值来连接上一个区块这样区块就按时间顺序排列形成了一条链。每个区块应该包含头部（head）信息用于总结性的描述这个区块，然后在区块的数据存放区（body）中存放要保存的重要数据。首先我们需要初始化main.go，并导入一些基本的包。
 
+{% highlight go %}
+//main.go
 
-	//main.go
+package main
 
-	package main
+import (
+	"bytes"
+	"crypto/sha256"
+	"encoding/binary"
+	"fmt"
+	"log"
+	"time"
+)
 
-	import (
-		"bytes"
-		"crypto/sha256"
-		"encoding/binary"
-		"fmt"
-		"log"
-		"time"
-	)
-
-	func main {
-		
-	}
-
+func main {
+	
+}
+{% endhighlight %}
 然后定义区块的结构体。
+{% highlight go %}
+//main.go
 
-	//main.go
-
-	type Block struct{
-		Timestamp int64
-		Hash []byte
-		PrevHash []byte
-		Data []byte
-	}
+type Block struct{
+	Timestamp int64
+	Hash []byte
+	PrevHash []byte
+	Data []byte
+}
+{% endhighlight %}
 
 我们定义的区块中有时间戳，本身的哈希值，指向上一个区块的哈希这三个属性构成头部信息，而区块中的数据以Data属性表示。在获得了区块后，我们可以定义区块链。
 
+{% highlight go %}
+//main.go
 
-	//main.go
-
-	type BlockChain struct{
-		Blocks []*Block
-	}
-
+type BlockChain struct{
+	Blocks []*Block
+}
+{% endhighlight %}
 
 可以看到我们这里的区块链就是区块的一个集合。好了，现在你已经掌握了区块与区块链了，现在就可以去搭建自己的区块链系统了。
 ## 哈希
 
 QVQ，好吧，我们现在来给我们的区块增加点细节，来看看它们是怎么连接起来的。对于一个区块而言，可以通过哈希算法概括其所包含的所有信息，哈希值就相当于区块的ID值，同时也可以用来检查区块所包含信息的完整性。哈希函数构造如下。
 
+{% highlight go %}
+//main.go
 
-	//main.go
+func (b *Block) SetHash() {
+	information := bytes.Join([][]bytes{ToHexInt(b.Timestamp),b.PrevHash,b.Data},[]byte{})
+	hash := sha256.Sum256(information)
+	b.Hash = hash[:]
+}
 
-	func (b *Block) SetHash() {
-		information := bytes.Join([][]bytes{ToHexInt(b.Timestamp),b.PrevHash,b.Data},[]byte{})
-		hash := sha256.Sum256(information)
-		b.Hash = hash[:]
+func ToHexInt(num int64) []byte {
+	buff := new(bytes.Buffer)
+	err := binary.Write(buff, binary.BigEndian, num)
+	if err != nil {
+		log.Panic(err)
 	}
-
-	func ToHexInt(num int64) []byte {
-		buff := new(bytes.Buffer)
-		err := binary.Write(buff, binary.BigEndian, num)
-		if err != nil {
-			log.Panic(err)
-		}
-		return buff.Bytes()
-	}
-
+	return buff.Bytes()
+}
+{% endhighlight %}
 
 information变量是将区块的各项属性串联之后的字节串。这里提醒一下bytes.Join可以将多个字节串连接，第二个参数是将字节串连接时的分隔符，这里设置为[]byte{}即为空，ToHexInt将int64转换为字节串类型。然后我们对information做哈希就可以得到区块的哈希值了。
 
 ## 区块创建与创始区块
 既然我们可以获得区块的哈希值了，我们就能够创建区块了。
 
+{% highlight go %}
+//main.go
 
-
-
-
-	//main.go
-
-	func CreateBlock(prevhash, data []byte) *Block {
-		block := Block{time.Now().Unix(), []byte{}, prevhash, data}
-		block.SetHash()
-		return &block
-	}
-
+func CreateBlock(prevhash, data []byte) *Block {
+	block := Block{time.Now().Unix(), []byte{}, prevhash, data}
+	block.SetHash()
+	return &block
+}
+{% endhighlight %}
 
 可以看到在创建一个区块时一定要引用前一个区块的哈希值，这里会有一个问题，那就是区块链中的第一个区块怎么创建？其实，在区块链中有一个创世区块，随着区块链的创建而添加，它指向的上一个区块的哈希值为空。
 
+{% highlight go %}
+//main.go
 
-	//main.go
-
-	func GenesisBlock() *Block {
-		genesisWords := "Hello, blockchain!"
-		return CreateBlock([]byte{}, []byte(genesisWords))
-	}
-
+func GenesisBlock() *Block {
+	genesisWords := "Hello, blockchain!"
+	return CreateBlock([]byte{}, []byte(genesisWords))
+}
+{% endhighlight %}
 
 可以看到我们在创始区块中存放了 *Hello, blockchain!* 这段信息。现在我们来构建函数，使得区块链可以根据其它信息创建区块进行储存。
 
+{% highlight go %}
+//main.go
 
-	//main.go
-
-	func (bc *BlockChain) AddBlock(data string) {
-		newBlock := CreateBlock(bc.Blocks[len(bc.Blocks)-1].Hash, []byte(data))
-		bc.Blocks = append(bc.Blocks, newBlock)
-	}
-
-
-
+func (bc *BlockChain) AddBlock(data string) {
+	newBlock := CreateBlock(bc.Blocks[len(bc.Blocks)-1].Hash, []byte(data))
+	bc.Blocks = append(bc.Blocks, newBlock)
+}
+{% endhighlight %}
 
 最后我们构建一个区块链初始化函数，使其返回一个包含创始区块的区块链。
 
+{% highlight go %}
+//main.go
 
-
-
-
-	//main.go
-
-	func CreateBlockChain() *BlockChain {
-		blockchain := BlockChain{}
-		blockchain.Blocks = append(blockchain.Blocks, GenesisBlock())
-		return &blockchain
-	}
-
+func CreateBlockChain() *BlockChain {
+	blockchain := BlockChain{}
+	blockchain.Blocks = append(blockchain.Blocks, GenesisBlock())
+	return &blockchain
+}
+{% endhighlight %}
 
 ## 运行区块链系统
 现在我们已经拥有了所有创建区块链需要的函数了，来看看我们的区块链是怎么运作的。
 
+{% highlight go %}
+//main.go
 
-	//main.go
+func main() {
+	blockchain := CreateBlockChain()
+	time.Sleep(time.Second)
+	blockchain.AddBlock("After genesis, I have something to say.")
+	time.Sleep(time.Second)
+	blockchain.AddBlock("Leo Cao is awesome!")
+	time.Sleep(time.Second)
+	blockchain.AddBlock("I can't wait to follow his github!")
+	time.Sleep(time.Second)
 
-	func main() {
-		blockchain := CreateBlockChain()
-		time.Sleep(time.Second)
-		blockchain.AddBlock("After genesis, I have something to say.")
-		time.Sleep(time.Second)
-		blockchain.AddBlock("Leo Cao is awesome!")
-		time.Sleep(time.Second)
-		blockchain.AddBlock("I can't wait to follow his github!")
-		time.Sleep(time.Second)
-
-		for _, block := range blockchain.Blocks {
-			fmt.Printf("Timestamp: %d\n", block.Timestamp)
-			fmt.Printf("hash: %x\n", block.Hash)
-			fmt.Printf("Previous hash: %x\n", block.PrevHash)
-			fmt.Printf("data: %s\n", block.Data)
-
-		}
+	for _, block := range blockchain.Blocks {
+		fmt.Printf("Timestamp: %d\n", block.Timestamp)
+		fmt.Printf("hash: %x\n", block.Hash)
+		fmt.Printf("Previous hash: %x\n", block.PrevHash)
+		fmt.Printf("data: %s\n", block.Data)
 
 	}
 
+}
+{% endhighlight %}
 
 在terminal中输入go run main.go，输出如下。
 

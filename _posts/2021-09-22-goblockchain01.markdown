@@ -69,6 +69,7 @@ type Block struct{
 	Data []byte
 }
 {% endhighlight %}
+
 我们定义的区块中有时间戳，本身的哈希值，指向上一个区块的哈希这三个属性构成头部信息，而区块中的数据以Data属性表示。在获得了区块后，我们可以定义区块链。
 
 {% highlight go %}
@@ -78,6 +79,7 @@ type BlockChain struct{
 	Blocks []*Block
 }
 {% endhighlight %}
+
 可以看到我们这里的区块链就是区块的一个集合。好了，现在你已经掌握了区块与区块链了，现在就可以去搭建自己的区块链系统了。
 ## 哈希
 
@@ -101,6 +103,7 @@ func ToHexInt(num int64) []byte {
 	return buff.Bytes()
 }
 {% endhighlight %}
+
 information变量是将区块的各项属性串联之后的字节串。这里提醒一下bytes.Join可以将多个字节串连接，第二个参数是将字节串连接时的分隔符，这里设置为[]byte{}即为空，ToHexInt将int64转换为字节串类型。然后我们对information做哈希就可以得到区块的哈希值了。
 
 ## 区块创建与创始区块
@@ -115,6 +118,7 @@ func CreateBlock(prevhash, data []byte) *Block {
 	return &block
 }
 {% endhighlight %}
+
 可以看到在创建一个区块时一定要引用前一个区块的哈希值，这里会有一个问题，那就是区块链中的第一个区块怎么创建？其实，在区块链中有一个创世区块，随着区块链的创建而添加，它指向的上一个区块的哈希值为空。
 
 {% highlight go %}
@@ -125,7 +129,9 @@ func GenesisBlock() *Block {
 	return CreateBlock([]byte{}, []byte(genesisWords))
 }
 {% endhighlight %}
+
 可以看到我们在创始区块中存放了 *Hello, blockchain!* 这段信息。现在我们来构建函数，使得区块链可以根据其它信息创建区块进行储存。
+
 {% highlight go %}
 //main.go
 
@@ -134,7 +140,9 @@ func (bc *BlockChain) AddBlock(data string) {
 	bc.Blocks = append(bc.Blocks, newBlock)
 }
 {% endhighlight %}
+
 最后我们构建一个区块链初始化函数，使其返回一个包含创始区块的区块链。
+
 {% highlight go %}
 //main.go
 
@@ -147,6 +155,7 @@ func CreateBlockChain() *BlockChain {
 
 ## 运行区块链系统
 现在我们已经拥有了所有创建区块链需要的函数了，来看看我们的区块链是怎么运作的。
+
 {% highlight go %}
 //main.go
 
@@ -170,6 +179,7 @@ func main() {
 
 }
 {% endhighlight %}
+
 在terminal中输入go run main.go，输出如下。
 
 	D:\learngo\goblockchain>go run main.go

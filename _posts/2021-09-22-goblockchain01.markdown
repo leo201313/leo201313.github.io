@@ -122,7 +122,7 @@ func CreateBlock(prevhash, data []byte) *Block {
 可以看到在创建一个区块时一定要引用前一个区块的哈希值，这里会有一个问题，那就是区块链中的第一个区块怎么创建？其实，在区块链中有一个创世区块，随着区块链的创建而添加，它指向的上一个区块的哈希值为空。
 
 {% highlight go %}
-//main.go
+
 
 func GenesisBlock() *Block {
 	genesisWords := "Hello, blockchain!"

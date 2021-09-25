@@ -132,6 +132,11 @@ func GenesisBlock() *Block {
 
 可以看到我们在创始区块中存放了 *Hello, blockchain!* 这段信息。现在我们来构建函数，使得区块链可以根据其它信息创建区块进行储存。
 
+
+
+
+
+
 {% highlight go %}
 //main.go
 

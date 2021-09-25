@@ -162,25 +162,24 @@ func main() {
 }
 {% endhighlight %}
 在terminal中输入go run main.go，输出如下。
-{% highlight %}
-D:\learngo\goblockchain>go run main.go
-Timestamp: 1632471455
-hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
-Previous hash:
-data: Hello, blockchain!
-Timestamp: 1632471456
-hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
-Previous hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
-data: After genesis, I have something to say.
-Timestamp: 1632471457
-hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
-Previous hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
-data: Leo Cao is awesome!
-Timestamp: 1632471458
-hash: 453ff251f95183c92ace277dec4181d5c71582129dc31cce3ceb37c7b1377efc
-Previous hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
-data: I can't wait to follow his github!
-{% endhighlight %}
+
+	D:\learngo\goblockchain>go run main.go
+	Timestamp: 1632471455
+	hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
+	Previous hash:
+	data: Hello, blockchain!
+	Timestamp: 1632471456
+	hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
+	Previous hash: 289c596026a32c6ac5702fd2d3c96104d6b7178de49beb70a71c100ee839ac26
+	data: After genesis, I have something to say.
+	Timestamp: 1632471457
+	hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
+	Previous hash: a29d04ef59529bb50b1526393203ebf7cc60d8f0ddfbb09900475c9dcf180d3b
+	data: Leo Cao is awesome!
+	Timestamp: 1632471458
+	hash: 453ff251f95183c92ace277dec4181d5c71582129dc31cce3ceb37c7b1377efc
+	Previous hash: 69eb263ab680cc0d45530c5ba0db1514255c891e084c3f04bfb416f0f1b06a59
+	data: I can't wait to follow his github!
 
 你需要注意的是创始区块没有Previous Hash，同时后面的每一个区块都保留了前一个区块的哈希值。
 

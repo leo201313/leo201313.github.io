@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "深入底层：Go语言从零构建区块链（二）：PoW工作证明机制"
+title: "深入底层：Go语言从零构建区块链（三）：交易信息与UTXO模型"
 subtitle: "Build Blockchain from Scratch with Golang"
-date: 2021-09-25
+date: 2021-09-30
 author: Krad
 category: Blockchain
 tags: blockchain golang

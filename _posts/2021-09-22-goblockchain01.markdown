@@ -89,7 +89,7 @@ QVQ，好吧，我们现在来给我们的区块增加点细节，来看看它�
 //main.go
 
 func (b *Block) SetHash() {
-	information := bytes.Join([][]bytes{ToHexInt(b.Timestamp),b.PrevHash,b.Data},[]byte{})
+	information := bytes.Join([][]byte{ToHexInt(b.Timestamp),b.PrevHash,b.Data},[]byte{})
 	hash := sha256.Sum256(information)
 	b.Hash = hash[:]
 }
